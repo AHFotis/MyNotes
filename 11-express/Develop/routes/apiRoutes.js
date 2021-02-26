@@ -6,29 +6,19 @@ const fs = require('fs');
 module.exports = function (app) {
 
     //copied from web for reference
-    // app.get("/api/notes", function (req, res) {
-    //     let savedNotes = [];
-
-    //     fs.readFile(__dirname + noteData, 'utf8', (err,data) => {
-    //         if(err) {
-    //             console.error(err);
-    //             res.json({"status": 404, "message": "db.json not found"});
-    //         } else {
-    //             savedNotes = JSON.parse(data);
-    //         }
-    //         res.join(savedNotes);
-    //     })
-    // });
+    app.get("/api/notes", function (req, res) {
+        //fs.readfile of some kind
+    });
 
     //posts new note data to note array
-    app.post("api/stores", function (req, res) {
-
+    app.post("api/notes", function (req, res) {
+        //most likely fs.appendfile
         
     })
 
     //deletes note
-    app.delete("api/stores", function (req, res) {
-
+    app.delete("api/notes", function (req, res) {
+        //maybe read, splice, and rewrite?
         
     })
 }
