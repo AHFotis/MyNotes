@@ -8,4 +8,8 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
+//Getting routes on server
+require("./Develop/routes/apiRoutes")(app);
+require("./Develop/routes/htmlRoutes")(app);
+
 app.listen(PORT, () => console.log(`App listening on PORT: ${PORT}`))
