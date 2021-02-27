@@ -1,13 +1,20 @@
 
 //maybe try this on the server page to start/make sure its working, THEN move to alternate files.
-var noteData = require("../db/db.json");
+// var dbPath = "../db/db.json";
+
 const fs = require('fs');
+var path = require("path");
+const dbPath = path.join(__dirname, "../db/db.json");
 
 module.exports = function (app) {
 
     //copied from web for reference
     app.get("/api/notes", function (req, res) {
-        //fs.readfile of some kind
+        fs.readFile(dbPath, 'utf8', (err, data) => {
+            if (err) throw err;
+            console.log(data);
+            return res.send(data);
+        })
     });
 
     //posts new note data to note array
