@@ -13,7 +13,8 @@ module.exports = function (app) {
         fs.readFile(dbPath, 'utf8', (err, data) => {
             if (err) throw err;
             console.log(data);
-            return res.send(data);
+            var notesResponse = JSON.parse(data)
+            res.json(notesResponse);
         })
     });
 
