@@ -5,7 +5,7 @@
 const fs = require('fs');
 var path = require("path");
 const dbPath = path.join(__dirname, "../db/db.json");
-const {v4 : uuidv4} = require('uuid')
+const { v4: uuidv4 } = require('uuid')
 
 module.exports = function (app) {
 
@@ -39,13 +39,13 @@ module.exports = function (app) {
                 if (err) throw err;
                 res.json(newNote);
             })
-            
+
         })
     })
 
     //deletes note
-    app.delete("api/notes", function (req, res) {
+    app.delete("/api/notes", function (req, res) {
         //maybe read, splice, and rewrite?
-        
+
     })
 }
