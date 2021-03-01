@@ -1,7 +1,4 @@
-
-//maybe try this on the server page to start/make sure its working, THEN move to alternate files.
-// var dbPath = "../db/db.json";
-
+//necessary packages and file paths
 const fs = require('fs');
 var path = require("path");
 const dbPath = path.join(__dirname, "../db/db.json");
@@ -9,7 +6,7 @@ const { v4: uuidv4 } = require('uuid')
 
 module.exports = function (app) {
 
-    //copied from web for reference
+    //get method to print list to page.
     app.get("/api/notes", function (req, res) {
         fs.readFile(dbPath, 'utf8', (err, data) => {
             if (err) throw err;
@@ -20,7 +17,7 @@ module.exports = function (app) {
 
     //posts new note data to note array
     app.post("/api/notes", function (req, res) {
-        //most likely fs.appendfile
+        
         fs.readFile(dbPath, 'utf8', (err, data) => {
             if (err) throw err;
 
@@ -57,7 +54,6 @@ module.exports = function (app) {
             if (err) throw err;
 
             let noteArray = JSON.parse(data);
-            console.log(noteArray)
 
             for (let i = 0; i < noteArray.length; i++) {
                 if (deleteId == noteArray[i].id) {
